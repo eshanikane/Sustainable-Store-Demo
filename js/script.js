@@ -87,13 +87,15 @@ function setupProductModal() {
     activeProductData = null;
   }
 
-  // Attach click handler to all "View Details" buttons
+  // Attach click handler to "View Details" buttons and product images
   const productCards = document.querySelectorAll('.product-card');
   productCards.forEach(function (card) {
     const viewBtn = card.querySelector('.view-details-btn');
-    if (!viewBtn) return;
+    const imageContainer = card.querySelector('.product-image');
 
-    viewBtn.addEventListener('click', function () {
+    if (!viewBtn && !imageContainer) return;
+
+    const handleOpen = function () {
       const el = card;
       const productData = {
         id: el.getAttribute('data-id'),
@@ -105,7 +107,16 @@ function setupProductModal() {
       };
 
       openModal(productData);
-    });
+    };
+
+    if (viewBtn) {
+      viewBtn.addEventListener('click', handleOpen);
+    }
+
+    if (imageContainer) {
+      imageContainer.style.cursor = 'pointer';
+      imageContainer.addEventListener('click', handleOpen);
+    }
   });
 
   // Close modal interactions
