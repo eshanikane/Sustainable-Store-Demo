@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Organic Candle illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f3ea" />
+      <stop offset="1" stop-color="#f6f1e8" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)" rx="32" />
+  <rect x="250" y="150" width="140" height="190" rx="28" fill="#fffdf8" stroke="#e2ddcf" />
+  <path d="M320 120 C310 138 304 148 304 160 C304 172 311 180 320 180 C329 180 336 172 336 160 C336 148 330 138 320 120Z" fill="#f6c27a" />
+  <circle cx="320" cy="250" r="46" fill="#d3e8dd" />
+  <text x="50%" y="86%" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#243328">
+    Organic Candle
+  </text>
+</svg>
+

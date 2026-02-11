@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Cotton Tote Bag illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f3ea" />
+      <stop offset="1" stop-color="#f6f1e8" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)" rx="32" />
+  <rect x="200" y="150" width="240" height="220" rx="24" fill="#fdfbf7" stroke="#e2ddcf" />
+  <path d="M230 160 Q320 80 410 160" fill="none" stroke="#c7b79a" stroke-width="18" />
+  <circle cx="320" cy="240" r="52" fill="#d3e8dd" />
+  <path d="M320 206 L340 246 L300 246 Z" fill="#3b7f5c" />
+  <text x="50%" y="86%" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#243328">
+    Cotton Tote Bag
+  </text>
+</svg>
+
