@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart | Sustainable Lifestyle Store</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Global Header / Navbar -->
+    <header class="site-header">
+      <div class="nav-container">
+        <a href="index.html" class="logo">Sustainable Lifestyle Store</a>
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="cart.html" class="nav-link nav-cart-link active">
+            Cart
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count-badge" id="cart-count">0</span>
+          </a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-section">
+        <div class="content-container fade-in-up">
+          <h1>Your Cart</h1>
+          <p class="cart-subtitle">
+            Review your eco-friendly picks before checkout. You can adjust quantities or remove items at any time.
+          </p>
+
+          <div id="cart-empty" class="cart-empty-message">
+            <p>Your cart is currently empty. Start exploring our sustainable collection on the Home page.</p>
+            <a href="index.html" class="btn-secondary">Browse Products</a>
+          </div>
+
+          <div id="cart-content" class="cart-content">
+            <div class="cart-items" id="cart-items">
+              <!-- Cart items rendered by JavaScript -->
+            </div>
+            <aside class="cart-summary" id="cart-summary">
+              <h2>Order Summary</h2>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+              </div>
+              <p class="summary-note">
+                This is a demo store. No real payment is processed, but your cart is remembered in your browser using
+                localStorage.
+              </p>
+              <button class="btn-primary full-width" id="checkout-button">Proceed to Checkout</button>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; <span id="footer-year"></span> Sustainable Lifestyle Store. All rights reserved.</p>
+        <div class="footer-social">
+          <span class="social-icon">IG</span>
+          <span class="social-icon">TW</span>
+          <span class="social-icon">IN</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+  </html>
+
