@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sustainable Lifestyle Store | Eco Products</title>
+    <title>Products | Sustainable Lifestyle Store</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- Global Header / Navbar -->
     <header class="site-header">
       <div class="nav-container">
         <a href="index.html" class="logo">Sustainable Lifestyle Store</a>
         <nav class="nav-links" id="nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="products.html" class="nav-link">Products</a>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="products.html" class="nav-link active">Products</a>
           <a href="about.html" class="nav-link">About</a>
           <a href="contact.html" class="nav-link">Contact</a>
           <a href="cart.html" class="nav-link nav-cart-link">
@@ -42,26 +41,18 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-content fade-in-up">
-          <h1>Eco-friendly essentials for a sustainable lifestyle</h1>
-          <p>
-            Thoughtfully curated products that are kind to the planet and easy to integrate into your everyday routine.
-          </p>
-          <a href="#products" class="btn-primary">Shop Collection</a>
-        </div>
-      </section>
-
-      <!-- Product Grid -->
       <section class="products-section" id="products">
         <div class="section-header fade-in-up">
-          <h2>Featured Eco Products</h2>
-          <p>Consciously designed alternatives to everyday items.</p>
+          <h1>All Sustainable Products</h1>
+          <p>Search and explore the full eco-friendly collection.</p>
+        </div>
+
+        <p class="products-search-summary fade-in-up" id="search-results-summary">Showing all products.</p>
+        <div class="search-empty-state fade-in-up" id="search-no-results">
+          No products matched your search. Try a different keyword.
         </div>
 
         <div class="products-grid fade-in-up" id="product-grid">
-          <!-- Product Card 1 -->
           <article
             class="product-card"
             data-id="bamboo-toothbrush"
@@ -84,7 +75,6 @@
             </div>
           </article>
 
-          <!-- Product Card 2 -->
           <article
             class="product-card"
             data-id="reusable-bottle"
@@ -107,7 +97,6 @@
             </div>
           </article>
 
-          <!-- Product Card 3 -->
           <article
             class="product-card"
             data-id="cotton-tote-bag"
@@ -130,7 +119,6 @@
             </div>
           </article>
 
-          <!-- Product Card 4 -->
           <article
             class="product-card"
             data-id="eco-notebook"
@@ -153,7 +141,6 @@
             </div>
           </article>
 
-          <!-- Product Card 5 -->
           <article
             class="product-card"
             data-id="steel-straw-set"
@@ -176,7 +163,6 @@
             </div>
           </article>
 
-          <!-- Product Card 6 -->
           <article
             class="product-card"
             data-id="plantable-pencils"
@@ -199,7 +185,6 @@
             </div>
           </article>
 
-          <!-- Product Card 7 -->
           <article
             class="product-card"
             data-id="recycled-backpack"
@@ -222,7 +207,6 @@
             </div>
           </article>
 
-          <!-- Product Card 8 -->
           <article
             class="product-card"
             data-id="organic-candle"
@@ -247,12 +231,9 @@
         </div>
       </section>
 
-      <!-- Product Details Modal -->
       <div class="modal-overlay" id="product-modal" aria-hidden="true">
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <button class="modal-close" id="modal-close" aria-label="Close details">
-            &times;
-          </button>
+          <button class="modal-close" id="modal-close" aria-label="Close details">&times;</button>
           <div class="modal-content">
             <div class="modal-image">
               <img id="modal-image" src="" alt="Product image" />
@@ -269,7 +250,6 @@
       </div>
     </main>
 
-    <!-- Global Footer -->
     <footer class="site-footer">
       <div class="footer-content">
         <p>&copy; <span id="footer-year"></span> Sustainable Lifestyle Store. All rights reserved.</p>
@@ -284,5 +264,4 @@
     <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
   </body>
-  </html>
-
+</html>

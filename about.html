@@ -13,6 +13,7 @@
         <a href="index.html" class="logo">Sustainable Lifestyle Store</a>
         <nav class="nav-links" id="nav-links">
           <a href="index.html" class="nav-link">Home</a>
+          <a href="products.html" class="nav-link">Products</a>
           <a href="about.html" class="nav-link active">About</a>
           <a href="contact.html" class="nav-link">Contact</a>
           <a href="cart.html" class="nav-link nav-cart-link">
@@ -20,6 +21,17 @@
             <span class="cart-icon">🛒</span>
             <span class="cart-count-badge" id="cart-count">0</span>
           </a>
+          <form class="toolbar-search" id="global-search-form" role="search" aria-label="Sitewide product search">
+            <input
+              class="toolbar-search-input"
+              id="global-search-input"
+              type="search"
+              name="q"
+              placeholder="Search products..."
+              aria-label="Search products"
+            />
+            <button class="toolbar-search-button" type="submit">Search</button>
+          </form>
         </nav>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
           <span></span>

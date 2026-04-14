@@ -8,9 +8,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   setupNavbar();
+  setupGlobalSearch();
   setupFooterYear();
   setupProductModal();
   setupAddToCartButtons();
+  setupProductSearchResults();
   setupContactForm();
 });
 
@@ -36,6 +38,40 @@ function setupNavbar() {
       navLinks.classList.remove('is-open');
       navToggle.classList.remove('is-open');
     }
+  });
+}
+
+// ------------------------------------------------------------
+// Global toolbar search (redirects to products page)
+// ------------------------------------------------------------
+
+function setupGlobalSearch() {
+  const searchForm = document.getElementById('global-search-form');
+  const searchInput = document.getElementById('global-search-input');
+
+  if (!searchForm || !searchInput) return;
+
+  const currentQuery = new URLSearchParams(window.location.search).get('q') || '';
+  if (currentQuery) {
+    searchInput.value = currentQuery;
+  }
+
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const query = searchInput.value.trim();
+    const targetUrl = query ? `products.html?q=${encodeURIComponent(query)}` : 'products.html';
+    const isProductsPage = window.location.pathname.toLowerCase().endsWith('/products.html') ||
+      window.location.pathname.toLowerCase().endsWith('\\products.html') ||
+      window.location.pathname.toLowerCase().endsWith('products.html');
+
+    if (isProductsPage) {
+      const nextUrl = query ? `?q=${encodeURIComponent(query)}` : window.location.pathname.split('/').pop() || 'products.html';
+      window.history.replaceState({}, '', nextUrl);
+      applyProductSearch(query);
+      return;
+    }
+
+    window.location.href = targetUrl;
   });
 }
 
@@ -177,6 +213,57 @@ function setupAddToCartButtons() {
       alert('Added to cart!');
     });
   });
+}
+
+// ------------------------------------------------------------
+// Products page filtering from ?q=
+// ------------------------------------------------------------
+
+function setupProductSearchResults() {
+  const productGrid = document.getElementById('product-grid');
+  const summaryEl = document.getElementById('search-results-summary');
+  const emptyStateEl = document.getElementById('search-no-results');
+
+  if (!productGrid || !summaryEl || !emptyStateEl) return;
+
+  const query = new URLSearchParams(window.location.search).get('q') || '';
+  applyProductSearch(query);
+}
+
+function applyProductSearch(rawQuery) {
+  const productGrid = document.getElementById('product-grid');
+  const summaryEl = document.getElementById('search-results-summary');
+  const emptyStateEl = document.getElementById('search-no-results');
+
+  if (!productGrid || !summaryEl || !emptyStateEl) return;
+
+  const query = rawQuery.trim().toLowerCase();
+  const cards = Array.from(productGrid.querySelectorAll('.product-card'));
+  let matches = 0;
+
+  cards.forEach(function (card) {
+    const searchableText = [
+      card.getAttribute('data-name') || '',
+      card.getAttribute('data-description') || '',
+      card.getAttribute('data-benefit') || '',
+      card.getAttribute('data-id') || '',
+    ]
+      .join(' ')
+      .toLowerCase();
+
+    const isMatch = !query || searchableText.includes(query);
+    card.style.display = isMatch ? '' : 'none';
+    if (isMatch) matches += 1;
+  });
+
+  if (!query) {
+    summaryEl.textContent = `Showing all ${cards.length} products.`;
+    emptyStateEl.style.display = 'none';
+    return;
+  }
+
+  summaryEl.textContent = `${matches} result${matches === 1 ? '' : 's'} for "${rawQuery.trim()}".`;
+  emptyStateEl.style.display = matches === 0 ? 'block' : 'none';
 }
 
 // ------------------------------------------------------------ 
